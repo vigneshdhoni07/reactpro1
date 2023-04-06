@@ -1,11 +1,28 @@
+
+import React, { useEffect, useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  var lref=useRef()
+  var [swi,setSwi]=useState("a1")
+  var a1="App-logo"
+  var a2="App-logo1"
+  useEffect(()=>{
+    setTimeout(()=>{
+      lref.current.className=lref.current.value=="a1"?a2:a1
+      swi=="a1"?setSwi("a2"):setSwi("a1")
+      lref.current.value=swi
+      
+    },1000)
+  },[swi])
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        
+        <img src={logo} className={a1} alt="logo" ref={lref} value={swi}/>
+        
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
