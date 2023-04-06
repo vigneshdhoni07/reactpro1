@@ -10,12 +10,12 @@ function App() {
   var a2="App-logo1"
   useEffect(()=>{
     setTimeout(()=>{
-      lref.current.className=lref.current.value=="a1"?a2:a1
-      swi=="a1"?setSwi("a2"):setSwi("a1")
+      lref.current.className=lref.current.value==="a1"?a2:a1
+      swi==="a1"?setSwi("a2"):setSwi("a1")
       lref.current.value=swi
       
     },1000)
-  },[swi])
+  },[swi,a1,a2])
   
   return (
     <div className="App">
